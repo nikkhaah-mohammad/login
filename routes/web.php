@@ -26,3 +26,5 @@ Route::get('profile', 'HomeController@profile');
 Route::post('profile', 'HomeController@update_avatar');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/home','HomeController@profileUpdate')->name('profileupdate');
+Route::post('/home','HomeController@profileUpdate')->name('profileupdate');

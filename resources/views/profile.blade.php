@@ -46,8 +46,24 @@
                     <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">
                     <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</small>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Set Avatar</button><br>
             </form>
         </div>
+
+
+        
+    <form action="{{route('home')}}" method="POST">
+                    @csrf
+                       <div class="form-group">
+                           <label for="name"><strong>Change Name:</strong></label>
+                           <input type="text" class="form-control" id ="name" name="name" value="{{Auth::user()->name}}">
+                       </div>
+                        <div class="form-group">
+                           <label for="email"><strong>Change Email:</strong></label>
+                           <input type="text" class="form-control" id ="email" value="{{Auth::user()->email}}" name="email">
+                       </div>
+                        <button class="btn btn-primary" type="submit">Update Profile</button>
+                   </form>
+
     </div>
 @endsection

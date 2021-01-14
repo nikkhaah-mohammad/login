@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+//require __DIR__ . '/vendor/autoload.php';
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
@@ -49,9 +49,10 @@ class HomeController extends Controller
 
         $user->avatar = $avatarName;
         $user->save();
-
+        
         return back()
             ->with('success','You have successfully upload image.');
+
 
     }
 
@@ -66,8 +67,10 @@ class HomeController extends Controller
         $user->name = $request['name'];
         $user->email = $request['email'];
         $user->save();
+
+
+        
         return back()->with('message','Profile Updated');
     }
-
    
 }

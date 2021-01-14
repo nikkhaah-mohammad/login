@@ -1,100 +1,131 @@
-<div class="container">
-<div class="row">
-<!-- You can make it whatever width you want. I'm making it full width
-on <= small devices and 4/12 page width on >= medium devices -->
-<div class="col-xs-12 col-md-4">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
 
+<html>
+    <head>
+        <title>فاکتور پرداخت</title>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-k2/8zcNbxVIh5mnQ52A0r3a6jAgMGxFJFE2707UxGCk= sha512-ZV9KawG2Legkwp3nAlxLIVFudTauWuBpC10uEafMHYL0Sarrz5A7G79kXh5+5+woxQ5HM559XX2UZjMJ36Wplg==" crossorigin="anonymous">
+    </head>
+    <body style="font-family: 'Open Sans', sans-serif;">
+        <div class="container">
+		<div class="centered title"><h1>
+		<?php 
+		 $con = "فاکتور پرداخت";
+		 $name = Auth::user()->name;
+		 echo $name."  ".$con
 
-<!-- CREDIT CARD FORM STARTS HERE -->
-<div class="panel panel-default credit-card-box">
-<div class="panel-heading display-table" >
-<div class="row display-tr" >
-<h3 class="panel-title display-td" >اطلاعات پرداخت</h3>
-<div class="display-td" >                            
-<img class="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png">
-</div>
-</div>                    
-</div>
-<div class="panel-body">
-<form role="form" id="payment-form">
-<div class="row">
-<div class="col-xs-12">
-<div class="form-group">
-<label for="cardNumber">شماره کارت</label>
-<div class="input-group">
-<input 
-type="tel"
-class="form-control"
-name="cardNumber"
-placeholder="Valid Card Number"
-autocomplete="cc-number"
-required autofocus 
-/>
-<span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
-</div>
-</div>                            
-</div>
-</div>
-<div class="row">
-<div class="col-xs-7 col-md-7">
-<div class="form-group">
-<label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
-<input 
-type="tel" 
-class="form-control" 
-name="cardExpiry"
-placeholder="MM / YY"
-autocomplete="cc-exp"
-required 
-/>
-</div>
-</div>
-<div class="col-xs-5 col-md-5 pull-right">
-<div class="form-group">
-<label for="cardCVC">CV CODE</label>
-<input 
-type="tel" 
-class="form-control"
-name="cardCVC"
-placeholder="CVC"
-autocomplete="cc-csc"
-required
-/>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-xs-12">
-<div class="form-group">
-<label for="couponCode">COUPON CODE</label>
-<input type="text" class="form-control" name="couponCode" />
-</div>
-</div>                        
-</div>
-<div class="row">
-<div class="col-xs-12">
-<button class="btn btn-success btn-lg btn-block" type="submit">پرداخت شود</button>
-</div>
-</div>
-<div class="row" style="display:none;">
-<div class="col-xs-12">
-<p class="payment-errors"></p>
-</div>
-</div>
-</form>
-</div>
-</div>            
-<!-- CREDIT CARD FORM ENDS HERE -->
-
-
-</div>            
-
-
-
-</div>
-</div>
-
-	<!-- If you're using Stripe for payments -->
-<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-	
-</body>
+		?></h1></div>
+     </div>
+     <hr class="featurette-divider"></hr>
+         <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                <div class="tab-content">
+  <div id="stripe" class="tab-pane fade in active">
+                       <script src='https://js.stripe.com/v2/' type='text/javascript'></script>
+          <form accept-charset="UTF-8" action="/" class="require-validation" data-cc-on-file="false" data-stripe-publishable-key="pk_bQQaTxnaZlzv4FnnuZ28LFHccVSaj" id="payment-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓" /><input name="_method" type="hidden" value="PUT" /><input name="authenticity_token" type="hidden" value="qLZ9cScer7ZxqulsUWazw4x3cSEzv899SP/7ThPCOV8=" /></div>
+            <br>
+          <div class='form-row'>
+              <div class='form-group required'>
+                <div class='error form-group hide'>
+                <div class='alert-danger alert'>
+                  Please correct the errors and try again.
+              
+              </div>
+            </div>
+                <label class='control-label'>Name on Card</label>
+                <input class='form-control' size='4' type='text'>
+              </div>
+                    
+            </div>
+            <div class='form-row'>
+              <div class='form-group card required'>
+                  <label class='control-label'>Card Number</label>
+                <input autocomplete='off' class='form-control card-number' size='20' type='text'>
+              </div>
+            </div>
+             <div class='form-row'>
+              <div class='form-group card required'>
+                <label class='control-label'>Billing Address</label>
+                <input autocomplete='off' class='form-control' size='20' type='text'>
+              </div>
+            </div>
+            <div class='form-row'>
+              <div class='form-group cvc required'>
+                <label class='control-label'>CVC</label>
+                <input autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' size='4' type='text'>
+              </div>
+              <div class='form-group expiration required'>
+                <label class='control-label'>Expiration</label>
+                <input class='form-control card-expiry-month' placeholder='MM' size='2' type='text'>
+              </div>
+              <div class='form-group expiration required'>
+                <label class='control-label'>Year</label>
+                <input class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text'>
+              </div>
+            </div>
+    
+           
+            <div class='form-row'>
+              <div class='form-group'>
+                         <label class='control-label'></label>
+                      
+               <button class='form-control btn btn-primary' type='submit'> Continue →</button>
+          
+              </form>    
+                
+              </div>
+            </div>    
+            
+              </div>
+              
+                <div id="paypal" class="tab-pane fade">
+                <form action="?" id="paypalForm" method="POST">
+                <div class="paypalResult"><!-- content will load here --></div>
+               <br>
+                <input type="hidden" id="action" value="paypal"></input>
+                <input type="hidden" id="token" value="token-supersecuretoken123123123"></input>
+               <a href="#paypal"><img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="paypal" width="100%"></a>
+               <br><br><br>
+                  <button class='form-control btn btn-primary submit-button' type='submit'> Continue →</button>
+              </div>
+            </div>
+            
+            
+          
+        </div>   
+     
+        <div class="col-sm-6">
+           <label class='control-label'></label><!-- spacing -->
+        
+          <div class="alert alert-info">Please choose your method of payment and hit continue. You will then be sent down to pay using your selected payment option.</div>
+       <br>
+         <div class="btn-group-vertical btn-block">
+             <a class="btn btn-default" style="text-align: left;" data-toggle="tab" href="#stripe">Stripe/Credit Card</a>
+          <a class="btn btn-default" style="text-align: left;" data-toggle="tab" href="#paypal">PayPal</a>
+          </div>
+          
+          <br><br><br>
+         
+         <div class="jumbotron jumbotron-flat">
+    <div class="center"><h2><i>مبلغ قابل پرداخت</i></h2></div>
+		   <div class="paymentAmt"><?php 
+			 $price = Auth::user()->payment;
+			 echo "هزار ریال".$price
+		   ?></div>
+        
+          
+        </div>
+        
+     
+          
+            <br><br><br>
+        </div>
+      
+                </div>
+     
+            </div>
+        </div>
+        

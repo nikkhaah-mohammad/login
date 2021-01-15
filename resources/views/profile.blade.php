@@ -44,9 +44,9 @@
                 @csrf
                 <div class="form-group">
                     <input type="file" class="form-control-file" name="avatar" id="avatarFile" aria-describedby="fileHelp">
-                    <small id="fileHelp" class="form-text text-muted">Please upload a valid image file. Size of image should not be more than 2MB.</small>
+                    <small id="fileHelp" class="form-text text-muted"></small>
                 </div>
-                <button type="submit" class="btn btn-primary">Set Avatar</button><br>
+                <button type="submit" class="btn btn-primary">ذخیره عکس</button><br>
             </form>
         </div>
 
@@ -55,14 +55,14 @@
     <form action="{{route('home')}}" method="POST">
                     @csrf
                        <div class="form-group">
-                           <label for="name"><strong>Change Name:</strong></label>
+                           <label for="name"><strong>ویرایش نام</strong></label>
                            <input type="text" class="form-control" id ="name" name="name" value="{{Auth::user()->name}}">
                        </div>
                         <div class="form-group">
-                           <label for="email"><strong>Change Email:</strong></label>
+                           <label for="email"><strong>ویرایش ایمیل</strong></label>
                            <input type="text" class="form-control" id ="email" value="{{Auth::user()->email}}" name="email">
                        </div>
-                        <button class="btn btn-primary" type="submit">Update Profile</button>
+                        <button class="btn btn-primary" type="submit">ثبت اطلاعات</button>
                    </form>
 
     </div>

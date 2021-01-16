@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Auth;
+use Kavenegar\KavenegarApi;
 
 class HomeController extends Controller
 {
@@ -72,5 +73,6 @@ class HomeController extends Controller
         
         return back()->with('message','Profile Updated');
     }
-   
+
+    
 }

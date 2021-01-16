@@ -13,11 +13,14 @@
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
         "kavenegar/laravel": "^1.3",
+        "kavenegar/php": "^1.2",
         "laravel/framework": "^7.0",
         "laravel/passport": "^9.4",
         "laravel/socialite": "^5.1",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "2.4"
+        "laravel/ui": "2.4",
+        "mohsenbostan/ghasedak-sms": "^1.2",
+        "thomasjohnkane/snooze": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

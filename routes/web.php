@@ -24,6 +24,7 @@ Auth::routes();
 
 Route::get('profile', 'HomeController@profile');
 Route::post('profile', 'HomeController@update_avatar');
+Route::get('/sms', 'HomeController@sms');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
